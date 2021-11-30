@@ -67,6 +67,7 @@ const generate = async (model, long_side_scale_size, img, output) => {
     start = performance.now();
     let generated = await model.executeAsync({ 'generator_input': scaled_img_tensor });
     // let generated = await model.executeAsync({ 'test': scaled_img_tensor });
+
     scaled_img_tensor.dispose();
     let end = performance.now();
     console.log("Image Generated");
