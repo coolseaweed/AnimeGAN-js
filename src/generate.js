@@ -10,9 +10,29 @@ tf.enableProdMode();
 
 let start;
 
-// const MODEL_URL = window.location.href + 'model_full/model.json';
-const MODEL_URL = window.location.href + 'hayo_models/float32/model.json';
+// const MODEL_URL = window.location.href + 'models/float16/summerwar/model.json';
+// const MODEL_URL = window.location.href + 'models/float32/hayao/model.json';
+let MODEL_URL = window.location.href + 'models/hayao/uint8/model.json';
 
+
+// console.log(`model_name:${model_name}`)
+
+let get_models = async (model_name) => {
+    if (model_name === "hayao") {
+        MODEL_URL = window.location.href + 'models/hayao/uint8/model.json';
+        // MODEL_URL = window.location.href + 'hayo_models/float32/model.json';
+    } else if (model_name === "paprika") {
+        MODEL_URL = window.location.href + 'models/paprika/uint8/model.json';
+    } else if (model_name === "shinkai") {
+        MODEL_URL = window.location.href + 'models/shinkai/uint8/model.json';
+    } else if (model_name === "strange_daddy") {
+        MODEL_URL = window.location.href + 'models/strange_daddy/uint8/model.json';
+    } else if (model_name === "charge") {
+        MODEL_URL = window.location.href + 'models/charge/uint8/model.json';
+    } else if (model_name === "iblard") {
+        MODEL_URL = window.location.href + 'models/iblard/uint8/model.json';
+    }
+}
 
 
 const progressesList = [0.00023367749587460492, 0.054088046653978504, 0.1804816724673639, 0.18052037621199904, 0.2528568019649621, 0.37458444400475477, 0.39315031021211105, 0.39319017797911254, 0.4444196766347441, 0.5207431700988491, 0.550593651422125, 0.5542242372745627, 0.5605664132978859, 0.5806242652109398, 0.5927784050567816, 0.5962346785553008, 0.5981026434950807, 0.5989430676647844, 0.6435568450337933, 0.6676838282371483, 0.6684442258671517, 0.7463103400111626, 0.9019785470675509, 0.95];
@@ -82,20 +102,25 @@ let preHeat = () => {
     // Pre-heat
     let model_load_start = performance.now();
     tfc.loadGraphModel(MODEL_URL).then((model) => {
-        console.log("Model Loaded");
+        console.log(`Model Loaded: ${MODEL_URL}`);
         let model_load_end = performance.now();
         console.log(`Took ${(model_load_end - model_load_start) / 1000} s to load the model`);
         model.dispose();
     });
 }
 
-let generateImage = async (resize, fp16, img_id, canvas_id) => {
+let generateImage = async (model_name, resize, fp16, img_id, canvas_id) => {
     if (fp16) {
         // tf.webgl.forceHalfFloat();
         tf.env().set('WEBGL_FORCE_F16_TEXTURES', true);
     } else {
         tf.env().set('WEBGL_FORCE_F16_TEXTURES', false);
     }
+
+    get_models(model_name);
+
+    console.log(`MODEL URL is:${MODEL_URL}`);
+    console.log(`model_name is:${model_name}`);
 
     let long_side_scale_size;
 
@@ -110,8 +135,11 @@ let generateImage = async (resize, fp16, img_id, canvas_id) => {
     }
 
     let model_load_start = performance.now();
+
+
+
     await tfc.loadGraphModel(MODEL_URL).then(async (model) => {
-        console.log("Model Loaded");
+        console.log(`Model Loaded:${MODEL_URL}`);
         let model_load_end = performance.now();
         console.log(`Took ${(model_load_end - model_load_start) / 1000} s to load the model`);
         console.log(model);

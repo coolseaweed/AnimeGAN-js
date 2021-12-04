@@ -1,7 +1,7 @@
 h1 {
     font-weight: 700;
     font-size: 1.6rem;
-    color: #6d6d6d;
+    color: #ffffff;
 }
 
 .margin {
@@ -27,6 +27,6 @@ h1 {
     top: 0px;
     display: block;
     position: absolute;
-    background-color: #f9f6eb;
+    background-color: #696969;
     z-index: 999;
 }
