@@ -12,6 +12,7 @@ class App extends React.Component {
       uploadedImageURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
       uploaded: false,
       model_name: "hayao",
+      model_type: "uint8",
       fp16: 0,
       resize: "l",
       generationStatus: 0,
@@ -79,7 +80,7 @@ class App extends React.Component {
     });
     let success = false;
     try {
-      await generateImage(this.state.model_name, this.state.resize, this.state.fp16, "uploaded-image", "output");
+      await generateImage(this.state.model_name, this.state.model_type, this.state.resize, this.state.fp16, "uploaded-image", "output");
       success = true;
     } catch (error) {
       alert("Error encountered while generating image: " + error);
@@ -112,7 +113,7 @@ class App extends React.Component {
           <Row className="margin">
             <Col />
             <Col xs="12">
-              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta: 0.0.2v </h1>
+              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta: 0.0.4v </h1>
             </Col>
             <Col />
           </Row>
@@ -154,12 +155,22 @@ class App extends React.Component {
                 <Form.Group controlId="resize">
                   <Form.Control defaultValue="l" as="select" onChange={(e) => this.setState({ resize: e.target.value })}>
                     <option value="l">고화질</option>
+                    <option value="ll">고화질+ (메모리 overflow 주의!)</option>
+                    <option value="L">고화질++ (메모리 overflow 주의!)</option>
 
                     {/* <option value="none" disabled>Select Generated Image Size</option> */}
                     <option value="m">저화질</option>
                     <option value="original">원본(추천안함)</option>
                   </Form.Control>
                 </Form.Group>
+
+                <Form.Group controlId="model_type">
+                  <Form.Control as="select" onChange={(e) => this.setState({ model_type: e.target.value })}>
+                    <option value="uint8">uint8</option>
+                    <option value="float16">float16</option>
+                  </Form.Control>
+                </Form.Group>
+
                 <Form.Group controlId="fp16">
                   <Form.Control as="select" onChange={(e) => this.setState({ fp16: parseInt(e.target.value) })}>
                     <option value="0">WEB_GL FP16: False</option>

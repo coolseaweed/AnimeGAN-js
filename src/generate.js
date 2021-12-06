@@ -17,20 +17,20 @@ let MODEL_URL = window.location.href + 'models/hayao/uint8/model.json';
 
 // console.log(`model_name:${model_name}`)
 
-let get_models = async (model_name) => {
+let get_models = async (model_name, model_type) => {
     if (model_name === "hayao") {
-        MODEL_URL = window.location.href + 'models/hayao/float16/model.json';
+        MODEL_URL = window.location.href + `models/hayao/${model_type}/model.json`;
         // MODEL_URL = window.location.href + 'hayo_models/float32/model.json';
     } else if (model_name === "paprika") {
-        MODEL_URL = window.location.href + 'models/paprika/float16/model.json';
+        MODEL_URL = window.location.href + `models/paprika/${model_type}/model.json`;
     } else if (model_name === "shinkai") {
-        MODEL_URL = window.location.href + 'models/shinkai/float16/model.json';
+        MODEL_URL = window.location.href + `models/shinkai/${model_type}/model.json`;
     } else if (model_name === "strange_daddy") {
-        MODEL_URL = window.location.href + 'models/strange_daddy/float16/model.json';
+        MODEL_URL = window.location.href + `models/strange_daddy/${model_type}/model.json`;
     } else if (model_name === "charge") {
-        MODEL_URL = window.location.href + 'models/charge/float16/model.json';
+        MODEL_URL = window.location.href + `models/charge/${model_type}/model.json`;
     } else if (model_name === "iblard") {
-        MODEL_URL = window.location.href + 'models/iblard/float16/model.json';
+        MODEL_URL = window.location.href + `models/iblard/${model_type}/model.json`;
     }
 }
 
@@ -109,7 +109,7 @@ let preHeat = () => {
     });
 }
 
-let generateImage = async (model_name, resize, fp16, img_id, canvas_id) => {
+let generateImage = async (model_name, model_type, resize, fp16, img_id, canvas_id) => {
     if (fp16) {
         // tf.webgl.forceHalfFloat();
         tf.env().set('WEBGL_FORCE_F16_TEXTURES', true);
@@ -117,10 +117,11 @@ let generateImage = async (model_name, resize, fp16, img_id, canvas_id) => {
         tf.env().set('WEBGL_FORCE_F16_TEXTURES', false);
     }
 
-    get_models(model_name);
+    get_models(model_name, model_type);
 
     console.log(`MODEL URL is:${MODEL_URL}`);
     console.log(`model_name is:${model_name}`);
+    console.log(`model_type is:${model_type}`);
 
     let long_side_scale_size;
 
@@ -130,6 +131,10 @@ let generateImage = async (model_name, resize, fp16, img_id, canvas_id) => {
         long_side_scale_size = 250;
     } else if (resize === "l") {
         long_side_scale_size = 500;
+    } else if (resize === "ll") {
+        long_side_scale_size = 750;
+    } else if (resize === "L") {
+        long_side_scale_size = 1000;
     } else {
         long_side_scale_size = -1;
     }
