@@ -2,7 +2,11 @@
 ## Youtube
 ---
 
-future work
+[click](future_work)
+
+## Demo
+
+[click](https://coolseaweed.github.io/AnimeGAN-js/)
 
 ## Develop
 ---

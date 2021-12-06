@@ -112,7 +112,7 @@ class App extends React.Component {
           <Row className="margin">
             <Col />
             <Col xs="12">
-              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta: 0.0.1v </h1>
+              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta: 0.0.2v </h1>
             </Col>
             <Col />
           </Row>

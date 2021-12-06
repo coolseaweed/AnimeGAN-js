@@ -19,18 +19,18 @@ let MODEL_URL = window.location.href + 'models/hayao/uint8/model.json';
 
 let get_models = async (model_name) => {
     if (model_name === "hayao") {
-        MODEL_URL = window.location.href + 'models/hayao/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/hayao/float16/model.json';
         // MODEL_URL = window.location.href + 'hayo_models/float32/model.json';
     } else if (model_name === "paprika") {
-        MODEL_URL = window.location.href + 'models/paprika/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/paprika/float16/model.json';
     } else if (model_name === "shinkai") {
-        MODEL_URL = window.location.href + 'models/shinkai/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/shinkai/float16/model.json';
     } else if (model_name === "strange_daddy") {
-        MODEL_URL = window.location.href + 'models/strange_daddy/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/strange_daddy/float16/model.json';
     } else if (model_name === "charge") {
-        MODEL_URL = window.location.href + 'models/charge/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/charge/float16/model.json';
     } else if (model_name === "iblard") {
-        MODEL_URL = window.location.href + 'models/iblard/uint8/model.json';
+        MODEL_URL = window.location.href + 'models/iblard/float16/model.json';
     }
 }
 
