@@ -33,6 +33,17 @@ class App extends React.Component {
     reader.readAsDataURL(input.files[0]);
   }
 
+  download = (e) => {
+    var canvas = document.getElementById("output");
+    var url = canvas.toDataURL("image/png");
+    var link = document.createElement('a');
+    link.download = 'output.png';
+    link.href = url;
+    link.click();
+    console.log(canvas);
+  }
+
+
   generate = async () => {
     if (this.state.generationStatus !== 0) {
       return;
@@ -85,6 +96,9 @@ class App extends React.Component {
 
   }
 
+
+
+
   componentWillUnmount = () => {
     if (this.state.updateGenerationProgressInterval !== -1) {
       clearInterval(this.state.updateGenerationProgressInterval);
@@ -98,7 +112,7 @@ class App extends React.Component {
           <Row className="margin">
             <Col />
             <Col xs="12">
-              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta </h1>
+              <h1 style={{ "marginBottom": "20px", textAlign: "center" }}>AnimeGAN-js beta: 0.0.1v </h1>
             </Col>
             <Col />
           </Row>
@@ -154,7 +168,7 @@ class App extends React.Component {
                 </Form.Group>
 
 
-                <Button variant="primary" onClick={this.generate}>Generate</Button>
+                <Button variant="primary" onClick={this.generate}>이미지 생성</Button>
               </Form>
             </Col>
             <Col />
@@ -169,9 +183,8 @@ class App extends React.Component {
                 <Col />
                 <Col xs="12" md="8" lg="6" style={{ textAlign: "center" }}>
                   <ProgressBar now={this.state.generationProgress} style={{ "margin": "10px" }} />
-                  <p>Generating image...</p>
-                  <p>This may take 15 to 30 seconds depending on your device.</p>
-                  <p>Memory usage (MB): {this.state.bytesUsed / 1000000} </p>
+                  <p>이미지 생성 중 ...</p>
+                  <p>메모리 사용량 (MB): {this.state.bytesUsed / 1024 ** 2} </p>
                 </Col>
                 <Col />
               </Row>
@@ -192,11 +205,11 @@ class App extends React.Component {
             <Row className="margin">
               <Col />
               <Col xs="12" md="12" lg="12" xl="10" style={{ textAlign: "center", margin: "20px" }}>
-                <p>If you are on a mobile device, long press to save the image.</p>
-                <p>If you are on a desktop device, right click to save the image.</p>
-                <p>If it looks good, you could <a href="https://github.com/TonyLianLong/AnimeGAN.js">give AnimeGAN.js a star <span role="img" aria-label="star">🌟</span> on Github</a>.</p>
-                <p>AnimeGAN.js uses the trained model from AnimeGAN. If you are interested in how the TensorFlow version of AnimeGAN works, <a href="https://github.com/TachibanaYoshino/AnimeGAN">click here</a></p>
-                <Button variant="primary" onClick={() => window.location.reload()}>Restart</Button>
+                <p>Source codes were from following:</p>
+                <p>Frontend: <a href="https://github.com/TonyLianLong/AnimeGAN.js">https://github.com/TonyLianLong/AnimeGAN.js</a></p>
+                <p>Backend:  <a href="https://github.com/TachibanaYoshino/AnimeGAN">https://github.com/TachibanaYoshino/AnimeGAN</a></p>
+                <Button variant="primary" onClick={this.download}>이미지 다운로드</Button>
+                <Button variant="primary" onClick={() => window.location.reload()}>다른 이미지 만들기</Button>
               </Col>
               <Col />
             </Row>
