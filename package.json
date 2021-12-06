@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -32,5 +32,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://animegan.js.org/"
+  "homepage": "https://coolseaweed.github.io/"
 }
