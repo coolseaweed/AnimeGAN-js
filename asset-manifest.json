@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/AnimeGAN-js/static/css/main.0fd4d4f4.chunk.css",
-    "main.js": "/AnimeGAN-js/static/js/main.9a1ffcd5.chunk.js",
-    "main.js.map": "/AnimeGAN-js/static/js/main.9a1ffcd5.chunk.js.map",
+    "main.js": "/AnimeGAN-js/static/js/main.e000df8c.chunk.js",
+    "main.js.map": "/AnimeGAN-js/static/js/main.e000df8c.chunk.js.map",
     "runtime-main.js": "/AnimeGAN-js/static/js/runtime-main.d8882604.js",
     "runtime-main.js.map": "/AnimeGAN-js/static/js/runtime-main.d8882604.js.map",
     "static/css/2.3e819d00.chunk.css": "/AnimeGAN-js/static/css/2.3e819d00.chunk.css",
     "static/js/2.191ee44d.chunk.js": "/AnimeGAN-js/static/js/2.191ee44d.chunk.js",
     "static/js/2.191ee44d.chunk.js.map": "/AnimeGAN-js/static/js/2.191ee44d.chunk.js.map",
     "index.html": "/AnimeGAN-js/index.html",
-    "precache-manifest.b2e0c05f4a477d73731cde9552627a58.js": "/AnimeGAN-js/precache-manifest.b2e0c05f4a477d73731cde9552627a58.js",
+    "precache-manifest.7c63ed620222f5a10cdf5f2caa093ee4.js": "/AnimeGAN-js/precache-manifest.7c63ed620222f5a10cdf5f2caa093ee4.js",
     "service-worker.js": "/AnimeGAN-js/service-worker.js",
     "static/css/2.3e819d00.chunk.css.map": "/AnimeGAN-js/static/css/2.3e819d00.chunk.css.map",
     "static/css/main.0fd4d4f4.chunk.css.map": "/AnimeGAN-js/static/css/main.0fd4d4f4.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.3e819d00.chunk.css",
     "static/js/2.191ee44d.chunk.js",
     "static/css/main.0fd4d4f4.chunk.css",
-    "static/js/main.9a1ffcd5.chunk.js"
+    "static/js/main.e000df8c.chunk.js"
   ]
 }
