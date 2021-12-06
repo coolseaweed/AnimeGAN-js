@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1608d2522931c1003796b3acd3b0d9e",
+    "revision": "462a2d30a6506c16e2c7c767db4ed8f2",
     "url": "/AnimeGAN-js/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/AnimeGAN-js/static/css/2.3e819d00.chunk.css"
   },
   {
-    "revision": "95b388990db5bfd62cd3",
+    "revision": "07a9a11159a4889f8d97",
     "url": "/AnimeGAN-js/static/css/main.0fd4d4f4.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/AnimeGAN-js/static/js/2.191ee44d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "95b388990db5bfd62cd3",
-    "url": "/AnimeGAN-js/static/js/main.6a287269.chunk.js"
+    "revision": "07a9a11159a4889f8d97",
+    "url": "/AnimeGAN-js/static/js/main.457f4bc2.chunk.js"
   },
   {
     "revision": "d6eed6f1160151e445bc",
