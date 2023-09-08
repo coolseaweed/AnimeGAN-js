@@ -1,9 +1,4 @@
 
-## Youtube
----
-
-[click](https://youtu.be/Tvlj_BiRty4)
-
 ## Demo
 
 [click](https://coolseaweed.github.io/AnimeGAN-js/)
